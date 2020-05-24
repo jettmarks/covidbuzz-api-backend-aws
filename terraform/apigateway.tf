@@ -10,6 +10,10 @@ resource "aws_api_gateway_rest_api" "tcn_api_gateway" {
   name        = "tcn_api_gateway"
   description = "API Gateway for TCN Server backend"
   body        = data.template_file.tcn_api_swagger.rendered
+
+  endpoint_configuration {
+    types = ["REGIONAL"]
+  }
 }
 
 resource "aws_api_gateway_deployment" "tcn_lambda_gateway" {
