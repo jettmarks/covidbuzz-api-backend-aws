@@ -2,8 +2,8 @@
 
 aws s3api create-bucket \
   --bucket $TFSTATE_BUCKET \
-  --region us-east-1 \
-  --acl private
+  --acl private \
+  --create-bucket-configuration LocationConstraint=us-gov-east-1
 
 aws s3api put-bucket-encryption \
   --bucket $TFSTATE_BUCKET \
